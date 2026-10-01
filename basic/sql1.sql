@@ -1,0 +1,9 @@
+CREATE TABLE EMPLOYEE(
+employee_id SERIAL PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+role VARCHAR(20) ,
+department VARCHAR(20),
+hire_date DATE,
+salary NUMERIC(10,2)
+
+)
