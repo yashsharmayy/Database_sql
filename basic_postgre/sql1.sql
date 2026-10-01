@@ -1,3 +1,5 @@
+-- LESSON 1-5
+
 CREATE TABLE EMPLOYEE(
 employee_id SERIAL PRIMARY KEY,
 name VARCHAR(50) NOT NULL,
@@ -50,3 +52,23 @@ VALUES (888,'yash sharma','data analyst','IT','2026-04-18',200000.00),
  DROP COLUMN DEPARTMENT;
 
  DROP TABLE IF EXISTS EMPLOYEE2;
+
+-- LESSON 6 DATATYPE AND CONSTRAINS
+ 
+-- (notes)
+
+CREATE TABLE USERS(
+user_id 	INT PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+EMAIL VARCHAR(50) UNIQUE,
+AGE INTEGER CHECK (AGE>=18),
+REG_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+INSERT INTO USERS (USER_ID , name , email , age) values 
+(101,'sachin','sachin@gmail.com',20),
+(102,'RAJAn','RAJAN@gmail.com',23);
+
+select * from users;
+
+
+ 
