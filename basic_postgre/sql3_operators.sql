@@ -106,21 +106,77 @@ from employee2;
 
 
 
+-- SET OPERATORS
+
+
+CREATE TABLE STUDENT_2024 (
+student_id int primary key,
+student_name varchar(30),
+course varchar(50)
+);
+INSERT INTO  student_2024 (student_id , student_name , course) VALUES
+(1,'yash sharma','Bsc cs'),
+(2,'Bhumika sharma','Bsc physics'),
+(3,'raja sharma','Bsc chemistry'),
+(4,'rajesh kumar','BA history'),
+(5,'sachin sharma','Bsc cs');
+
+
+select * FROM STUDENT_2024;
+
+
+CREATE TABLE STUDENT_2025 (
+student_id int primary key,
+student_name varchar(30),
+course varchar(50)
+);
+INSERT INTO  student_2025 (student_id , student_name , course) VALUES
+(1,'SURESH sharma','Bsc chemistry'),
+(2,'Rashmika sharma','Bsc Life science'),
+(3,'raja sharma','Bsc chemistry'),
+(4,'rajesh kumar','BA history'),
+(5,'Bhupender sharma','Bsc cs');
+
+
+select * FROM STUDENT_2025;
 
 
 
+-- UNION -- COMBINE REUSLT , REMOVE DUPLICATES
+
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2024
+UNION
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2025
 
 
 
+-- UNION -- COMBINE REUSLT , KEEPS DUPLICATES
+
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2024
+UNION ALL
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2025
 
 
+-- INTERSECTION -- RETURN COMMON RESULTS
+
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2024
+INTERSECT
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2025
 
 
+-- EXCEPT -- RETURN RESULTS IN THE FIRST TABLE BUT NOT IN THE SECOND
 
-
-
-
-
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2024
+EXCEPT
+SELECT STUDENT_NAME , COURSE
+FROM STUDENT_2025
 
 
 
