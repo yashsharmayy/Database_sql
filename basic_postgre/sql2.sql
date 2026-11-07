@@ -36,3 +36,5 @@ CREATE TABLE EMPLOYEE3 (
 	AGE SMALLINT 
 );
 SELECT * FROM EMPLOYEE3;
+
+drop table employee4;
