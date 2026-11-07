@@ -80,9 +80,29 @@ SELECT * FROM EMPLOYEE2;
 
 
 
+-- Other operator
+
+-- IS NULL
+
+SELECT * FROM EMPLOYEE2
+WHERE email IS NULL;
+
+-- LIST employee sorted by salary in descending order
+
+SELECT * FROM EMPLOYEE2
+ORDER BY SALARY DESC;
+
+-- Retreive the top 5 highest-paid employee
+
+SELECT * FROM EMPLOYEE2 
+ORDER BY SALARY DESC
+LIMIT 5;
 
 
+-- retrive a list of unique department
 
+select distinct department 
+from employee2;
 
 
 
