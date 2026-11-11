@@ -263,3 +263,68 @@ FROM
 -- CONVERT A STRING TO A DATE FORMATE.
 
 SELECT TO_DATE('28-11-2026','DD-MM-YYYY') AS CONVERTED_DATE;
+
+
+-- CONDITONAL FUNCTIONS
+
+  /* CASE CASE FUNCTION- CATEGORIZING BASED ON CONDITIONS 
+  WE Will categorize products into price ranges:
+
+  expensive if the Price is greter than or equal to 50,000.
+  moderate if the price is between 10,000 and 49,999.
+  Affordale if the price is less than 10,000.
+
+  */
+
+
+ SELECT
+	PRODUCT_NAME,
+	PRICE,
+	CASE
+		WHEN PRICE >= 50000 THEN 'EXPENSIVE'
+		WHEN PRICE >= 10000
+		AND PRICE <= 49999 THEN 'MODERATE'
+		ELSE 'AFORDATBLE'
+	END AS PRICE_CATEGORY
+FROM
+	PRODUCTS;
+
+--  ASSIGMENT: CASE FUNCTION
+
+/* if quantity is 10 or more = in stock
+   if qunatity is between 5 to 9 = limited stock
+   if quantity is less than 5 = out of stock
+   */
+
+   SELECT * FROM PRODUCTS;
+
+SELECT
+	PRODUCT_NAME,
+	QUANTITY, CASE
+		WHEN QUANTITY >= 20 THEN 'IN STOCK'
+		WHEN QUANTITY >= 10
+		AND QUANTITY <= 19 THEN 'LIMITED STOCK'
+		ELSE 'OUT OF STOCK'
+	END AS PRODUCT_STATUS
+FROM
+	PRODUCTS; 
+
+
+/* CHECK if the category name contains
+"Electronics item" or "furniture item" or
+'Accessory' item using LIKE */
+
+SELECT
+	PRODUCT_NAME,
+	CATEGORY,
+	CASE
+		WHEN CATEGORY LIKE '%Electronics%' THEN 'Electronics ITEM'
+		WHEN CATEGORY LIKE '%Accessories%' THEN 'ACCESSORIES ITEM'
+		ELSE 'OTHER ITEMS'
+	END AS CATEG0RY_STATUS
+FROM
+	PRODUCTS;
+
+
+
+
