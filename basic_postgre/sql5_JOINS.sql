@@ -1,0 +1,133 @@
+CREATE TABLE DEPARTMENTS (
+    department_id SERIAL PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+CREATE TABLE EMPLOYEES (
+    employee_id SERIAL PRIMARY KEY,
+    employee_name VARCHAR(100),
+    salary NUMERIC(10,2),
+    department_id INT
+);
+
+CREATE TABLE PROJECTS (
+    project_id SERIAL PRIMARY KEY,
+    project_name VARCHAR(100),
+    department_id INT
+);
+
+INSERT INTO DEPARTMENTS (department_name)
+VALUES
+('IT'),
+('HR'),
+('Finance'),
+('Marketing'),
+('Sales');
+select * from departments;
+
+
+
+INSERT INTO EMPLOYEES
+(employee_name, salary, department_id)
+VALUES
+('Rahul', 60000, 1),
+('Aman', 45000, 1),
+('Priya', 55000, 2),
+('Neha', 40000, 2),
+('Karan', 70000, 3),
+('Rohit', 35000, 3),
+('Simran', 50000, NULL),
+('Vikas', 30000, 1);
+
+select * from employees;
+
+INSERT INTO PROJECTS (project_name, department_id)
+VALUES
+('Website Development', 1),
+('Mobile Application', 1),
+('Employee Management', 2),
+('Financial Analysis', 3),
+('Marketing Campaign', 4),
+('AI Research', NULL);
+
+
+select * from projects;
+
+-- inner join
+
+
+SELECT
+	D.DEPARTMENT_ID,
+	D.DEPARTMENT_NAME,
+	E.EMPLOYEE_NAME,
+	E.SALARY,
+	E.DEPARTMENT_ID
+FROM
+	DEPARTMENTS AS D
+	INNER JOIN EMPLOYEES AS E ON D.DEPARTMENT_ID = E.DEPARTMENT_ID;
+
+
+-- left join
+
+SELECT
+	D.DEPARTMENT_ID,
+	D.DEPARTMENT_NAME,
+	E.EMPLOYEE_NAME,
+	E.SALARY,
+	E.DEPARTMENT_ID
+FROM
+	DEPARTMENTS AS D
+	LEFT JOIN EMPLOYEES AS E ON D.DEPARTMENT_ID = E.DEPARTMENT_ID;
+
+
+	-- RIGHT join
+
+SELECT
+	D.DEPARTMENT_ID,
+	D.DEPARTMENT_NAME,
+	E.EMPLOYEE_NAME,
+	E.SALARY,
+	E.DEPARTMENT_ID
+FROM
+	DEPARTMENTS AS D
+	RIGHT JOIN EMPLOYEES AS E ON D.DEPARTMENT_ID = E.DEPARTMENT_ID;
+
+	-- FULL join
+
+SELECT
+	D.DEPARTMENT_ID,
+	D.DEPARTMENT_NAME,
+	E.EMPLOYEE_NAME,
+	E.SALARY,
+	E.DEPARTMENT_ID
+FROM
+	DEPARTMENTS AS D
+	FULL JOIN EMPLOYEES AS E ON D.DEPARTMENT_ID = E.DEPARTMENT_ID;
+
+
+-- CROSS JOIN
+	SELECT
+	D.DEPARTMENT_ID,
+	D.DEPARTMENT_NAME,
+	E.EMPLOYEE_NAME,
+	E.SALARY,
+	E.DEPARTMENT_ID
+FROM
+	DEPARTMENTS AS D
+	CROSS JOIN EMPLOYEES AS E;
+
+-- SELF JOIN
+
+SELECT E1.EMPLOYEE_NAME,
+	E1.SALARY,
+	E1.DEPARTMENT_ID,
+	E2.EMPLOYEE_NAME,
+	E2.SALARY,
+	E2.DEPARTMENT_ID
+	FROM EMPLOYEES AS E1
+	JOIN EMPLOYEES AS E2
+	ON E1.DEPARTMENT_ID = E2.DEPARTMENT_ID
+	AND E1.EMPLOYEE_NAME != E2.EMPLOYEE_NAME;
+
+
+
