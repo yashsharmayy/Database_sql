@@ -126,18 +126,62 @@ SELECT PRODUCT_NAME, LENGTH(PRODUCT_NAME) FROM PRODUCTS;
 
 -- 4. Display product names along with their categories using CONCAT().
 
- SELECT
+ SELECT CONCAT(PRODUCT_NAME,'-',CATEGORY) AS NAME_AND_CATEGORY FROM PRODUCTS;
 
 -- 5. Extract the first 3 characters of each product name using LEFT().
 
+SELECT LEFT(PRODUCT_NAME,3) FROM PRODUCTS;
+
 -- 6. Extract the last 3 characters of each product name using RIGHT().
+
+SELECT RIGHT(PRODUCT_NAME,3) FROM PRODUCTS;
 
 -- 7. Display the first 5 characters of each product name using SUBSTRING().
 
+SELECT SUBSTRING(PRODUCT_NAME,1,5) FROM PRODUCTS;
 
 
 
+-- DATE TIME FUNCTION----------------------------------
 
+
+-- Display today's date.
+
+
+
+-- Display the current time.
+
+
+
+-- Display the current date and time.
+
+
+
+-- -- Find the age of every product (time since added).
+
+
+
+-- Extract the year from ADDED_DATE.
+
+
+
+-- Extract the month from ADDED_DATE.
+
+
+
+-- Extract the day from ADDED_DATE.
+
+
+
+-- Display product names and their joining year (year added).
+
+
+
+-- Find products added in 2025 using EXTRACT().
+
+
+
+-- Find the number of days between today's date and each product's added date.
 
 
 
